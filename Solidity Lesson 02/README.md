@@ -66,5 +66,5 @@
 - geth 文档地址：https://learnblockchain.cn/2017/11/29/geth_cmd_options/
 >geth的命令参数文档
 ### 图谱
-![](ethereum map.png)
+![map](./ethereum map.png)
 ### 更多资源：https://github.com/ConsenSys/ethereum-developer-tools-list#ethereum-clients
