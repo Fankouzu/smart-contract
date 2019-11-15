@@ -50,7 +50,6 @@
 - 主网
 - Ropsten 水管地址：https://faucet.ropsten.be/
 - Rinkeby 水管地址：https://faucet.rinkeby.io/
-- 测试网
 - 私链
 
 ### 9.浏览器
