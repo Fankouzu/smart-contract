@@ -23,6 +23,8 @@
 ### 5.账户钱包
 - Metamask 地址：https://metamask.io/
 >浏览器插件
+- MIST 地址：https://github.com/ethereum/mist/releases
+>客户端全节点钱包，包含浏览器
 - Truffle 地址：https://truffleframework.com/
 >生成本地钱包
 - geth 地址：https://github.com/ethereum/go-ethereum
