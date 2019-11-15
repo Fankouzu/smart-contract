@@ -63,4 +63,6 @@
 ### 10.节点搭建
 - geth 地址：https://github.com/ethereum/go-ethereum
 >搭建主链，测试链，私链
+- geth 文档地址：https://learnblockchain.cn/2017/11/29/geth_cmd_options/
+>geth的命令参数文档
 - 更多资源：https://github.com/ConsenSys/ethereum-developer-tools-list#ethereum-clients
