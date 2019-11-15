@@ -7,6 +7,10 @@
 - Ethereum Studio 地址：https://studio.ethereum.org/
 >开发，编译，部署，前端调用
 - 其它开发环境：https://github.com/ConsenSys/ethereum-developer-tools-list#ides
+- ATOM 地址： https://atom.io/
+>客户端工具
+- Visual Studio Code 地址：https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity
+>客户端工具，需要安装插件
 
 ### 2.开发者工具
 - Truffle 地址：https://truffleframework.com/
