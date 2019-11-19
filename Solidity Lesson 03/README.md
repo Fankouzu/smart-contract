@@ -29,7 +29,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol";
 contract ExampleToken is ERC20, ERC20Detailed {
   constructor () public
   ERC20Detailed("CuiToken", "CUI", 18){
-    _mint(msg.sender,10000 * (10 ** uint256(decimals())));
+    _mint(msg.sender,10000000000 * (10 ** uint256(decimals())));
   }
 }
 ```
@@ -141,6 +141,41 @@ truffle migrate  --network ropsten
 #### 7.合约调用
 ```shell
 truffle console --network ropsten
+```
+```javascript
+var myCoin
+ExampleToken.deployed().then(function(instance){myCoin=instance})
+```
+
+
+
+### 4.部署到主网
+#### 1.修改truffle-config.js文件
+```shell
+vim truffle-config.js
+```
+```javascript
+var HDWalletProvider = require("truffle-hdwallet-provider");  // 导入模块
+var mnemonic_mainnet = "主网助记词";  //MetaMask的助记词。
+
+module.exports = {
+  	networks: {
+      mainnet: {
+        provider: new HDWalletProvider(mnemonic_mainnet, "https://mainnet.infura.io/e1bb25c2b20b4b5383517028056c89a3"),
+        gas: 3012388,
+        network_id: 1,
+        gasPrice: 30000000000
+      }
+  	}
+};
+```
+#### 6.部署
+```shell
+truffle migrate  --network mainnet
+```
+#### 7.合约调用
+```shell
+truffle console --network mainnet
 ```
 ```javascript
 var myCoin
