@@ -5,7 +5,6 @@
 #### Truffle中文文档地址：
 >https://learnblockchain.cn/docs/truffle/index.html
 #### 1.安装 Truffle：
-
 ```shell
 npm install -g truffle
 ```
@@ -17,6 +16,7 @@ npm install truffle-hdwallet-provider
 ```shell
 mkdir myProject    
 cd myProject
+truffle init
 ```
 #### 4.安装Openzeppelin
 ```shell
@@ -24,7 +24,7 @@ npm install @openzeppelin/contracts
 ```
 #### 5.创建Token.sol
 ```shell
-vim Token.sol
+vim contracts/Token.sol
 ```
 ```javascript
 pragma solidity ^0.5.0;
@@ -37,6 +37,12 @@ contract ExampleToken is ERC20, ERC20Detailed {
   }
 }
 ```
+#### 6.获取Ropsten测试币
+##### 获取地址：
+>https://faucet.ropsten.be/
 #### 6.获取MetaMask助记词
 ![map](https://github.com/Fankouzu/smart-contact/raw/master/Solidity%20Lesson%2003/metamask.jpg)
+#### 7.修改truffle-config.js文件
+
+
 oppose say prevent raven mystery fiber program pupil poverty else pill enact
