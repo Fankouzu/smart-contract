@@ -62,7 +62,7 @@ module.exports = {
         ropsten: {
             provider: function() {
                 // mnemonic表示MetaMask的助记词。 "ropsten.infura.io/v3/33..."表示Infura上的项目id
-                return new HDWalletProvider(mnemonic, "ropsten.infura.io/v3/33c69b85140042c8b67c7d74e776c4e4", 1);   // 1表示第二个账户(从0开始)
+                return new HDWalletProvider(mnemonic, "ropsten.infura.io/v3/e1bb25c2b20b4b5383517028056c89a3", 1);   // 0表示第二个账户(从0开始)
             },
             network_id: "*",  // match any network
             gas: 3012388,
@@ -70,4 +70,29 @@ module.exports = {
         },
   	}
 };
+```
+
+#### 10.编译
+```shell
+truffle compile
+```
+#### 11.创建文件
+```shell
+vim migrations/2_deploy_contracts.js
+```
+```javascript
+const ExampleToken = artifacts.require("ExampleToken");
+
+module.exports = function(deployer) {
+  deployer.deploy(ExampleToken);
+};
+```
+#### 12.部署
+```shell
+truffle migrate
+```
+#### 13.合约调用
+```javascript
+var myCoin
+ExampleToken.deployed().then(function(instance){myCoin=instance})
 ```
