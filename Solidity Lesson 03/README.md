@@ -1,28 +1,24 @@
 # 以太坊智能合约课
 ## 第03课--开发环境部署
 
-### 1.安装Truffle
+### 1.部署到Truffle
 #### Truffle中文文档地址：
 >https://learnblockchain.cn/docs/truffle/index.html
 #### 1.安装 Truffle：
 ```shell
 npm install -g truffle
 ```
-#### 2.安装HDWalletProvider
-```shell
-npm install truffle-hdwallet-provider
-```
-#### 3.新建项目文件夹
+#### 2.新建项目文件夹
 ```shell
 mkdir myProject    
 cd myProject
 truffle init
 ```
-#### 4.安装Openzeppelin
+#### 3.安装Openzeppelin
 ```shell
 npm install @openzeppelin/contracts
 ```
-#### 5.创建Token.sol
+#### 4.创建Token.sol
 ```shell
 vim contracts/Token.sol
 ```
@@ -37,19 +33,85 @@ contract ExampleToken is ERC20, ERC20Detailed {
   }
 }
 ```
-#### 6.获取Ropsten测试币
+#### 5.编译
+```shell
+truffle compile
+```
+#### 6.创建文件
+```shell
+vim migrations/2_deploy_contracts.js
+```
+```javascript
+const ExampleToken = artifacts.require("ExampleToken");
+
+module.exports = function(deployer) {
+  deployer.deploy(ExampleToken);
+};
+```
+#### 7.部署到Truffle develop
+```shell
+truffle develop
+```
+```shell
+migrate
+```
+#### 8.合约调用
+```javascript
+var myCoin
+ExampleToken.deployed().then(function(instance){myCoin=instance})
+```
+
+### 2.部署到Ganache
+#### 1.修改truffle-config.js文件
+```shell
+vim truffle-config.js
+```
+```javascript
+
+module.exports = {
+  	networks: {
+      development: {
+        host: "192.168.1.30",     // Localhost (default: none)
+        port: 7545,            // Standard Ethereum port (default: none)
+        network_id: "*",       // Any network (default: none)
+      },
+    }
+};
+```
+
+#### 2.部署到Ganache
+```shell
+truffle console
+```
+```shell
+migrate
+```
+#### 3.合约调用
+```javascript
+var myCoin
+ExampleToken.deployed().then(function(instance){myCoin=instance})
+```
+
+
+
+### 3.部署到Ropsten
+#### 1.安装HDWalletProvider
+```shell
+npm install truffle-hdwallet-provider
+```
+#### 2.获取Ropsten测试币
 ##### 获取地址：
 >https://faucet.ropsten.be/
 
 ![map](https://github.com/Fankouzu/smart-contact/raw/master/Solidity%20Lesson%2003/faucet.jpg)
-#### 7.获取MetaMask助记词
+#### 3.获取MetaMask助记词
 ![map](https://github.com/Fankouzu/smart-contact/raw/master/Solidity%20Lesson%2003/metamask.jpg)
-#### 8.注册Infura，获取测试网或主网的KEY
+#### 4.注册Infura，获取测试网或主网的KEY
 ##### 地址：
 >https://infura.io/
 
 ![map](https://github.com/Fankouzu/smart-contact/raw/master/Solidity%20Lesson%2003/infura.jpg)
-#### 9.修改truffle-config.js文件
+#### 5.修改truffle-config.js文件
 ```shell
 vim truffle-config.js
 ```
@@ -62,7 +124,7 @@ module.exports = {
         ropsten: {
             provider: function() {
                 // mnemonic表示MetaMask的助记词。 "ropsten.infura.io/v3/33..."表示Infura上的项目id
-                return new HDWalletProvider(mnemonic, "ropsten.infura.io/v3/e1bb25c2b20b4b5383517028056c89a3", 1);   // 0表示第二个账户(从0开始)
+                return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/e1bb25c2b20b4b5383517028056c89a3", 1);   // 0表示第二个账户(从0开始)
             },
             network_id: "*",  // match any network
             gas: 3012388,
@@ -72,26 +134,14 @@ module.exports = {
 };
 ```
 
-#### 10.编译
+#### 6.部署
 ```shell
-truffle compile
+truffle migrate  --network ropsten
 ```
-#### 11.创建文件
+#### 7.合约调用
 ```shell
-vim migrations/2_deploy_contracts.js
+truffle console --network ropsten
 ```
-```javascript
-const ExampleToken = artifacts.require("ExampleToken");
-
-module.exports = function(deployer) {
-  deployer.deploy(ExampleToken);
-};
-```
-#### 12.部署
-```shell
-truffle migrate
-```
-#### 13.合约调用
 ```javascript
 var myCoin
 ExampleToken.deployed().then(function(instance){myCoin=instance})
