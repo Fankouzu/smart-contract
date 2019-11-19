@@ -1,5 +1,5 @@
 # 以太坊智能合约课
-## 第03课--开发环境部署
+## 第03课--部署智能合约
 
 ### 1.部署到Truffle
 #### Truffle中文文档地址：
@@ -169,11 +169,11 @@ module.exports = {
   	}
 };
 ```
-#### 6.部署
+#### 2.部署
 ```shell
 truffle migrate  --network mainnet
 ```
-#### 7.合约调用
+#### 3.合约调用
 ```shell
 truffle console --network mainnet
 ```
