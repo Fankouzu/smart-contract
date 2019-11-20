@@ -128,7 +128,10 @@ module.exports = {
             },
             network_id: "*",  // match any network
             gas: 3012388,
-            gasPrice: 30000000000
+            gasPrice: 20000000000,
+            confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+            timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+            skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
         },
   	}
 };
@@ -162,9 +165,12 @@ module.exports = {
   	networks: {
       mainnet: {
         provider: new HDWalletProvider(mnemonic_mainnet, "https://mainnet.infura.io/e1bb25c2b20b4b5383517028056c89a3"),
-        gas: 3012388,
         network_id: 1,
-        gasPrice: 30000000000
+        gas: 3012388,
+        gasPrice: 20000000000,
+        confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+        timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+        skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
       }
   	}
 };
