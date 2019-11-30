@@ -151,7 +151,7 @@ ExampleToken.deployed().then(function(instance){myCoin=instance})
 ```
 
 
-
+ 
 ### 4.部署到主网
 #### 1.修改truffle-config.js文件
 ```shell
