@@ -11,7 +11,7 @@ contract ZombieFeeding is ZombieHelper {
     zombieFeedTimes[_zombieId] = zombieFeedTimes[_zombieId].add(1);
     _triggerCooldown(myZombie);
     if(zombieFeedTimes[_zombieId] % 10 == 0){
-        uint16 newDna = myZombie.dna - myZombie.dna % 10 + 8;
+        uint newDna = myZombie.dna - myZombie.dna % 10 + 8;
         _createZombie("zombie's son", newDna);
     }
   }

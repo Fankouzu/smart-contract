@@ -47,11 +47,11 @@ contract ZombieHelper is ZombieFactory {
       return (_zombie.readyTime <= now);
   }
 
-  function multiply(uint _zombieId, uint16 _targetDna) internal onlyOwnerOf(_zombieId) {
+  function multiply(uint _zombieId, uint _targetDna) internal onlyOwnerOf(_zombieId) {
     Zombie storage myZombie = zombies[_zombieId];
     require(_isReady(myZombie));
     _targetDna = _targetDna % dnaModulus;
-    uint16 newDna = (myZombie.dna + _targetDna) / 2;
+    uint newDna = (myZombie.dna + _targetDna) / 2;
     newDna = newDna - newDna % 10 + 9;
     _createZombie("NoName", newDna);
     _triggerCooldown(myZombie);
