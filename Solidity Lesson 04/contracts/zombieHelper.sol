@@ -40,7 +40,7 @@ contract ZombieHelper is ZombieFactory {
   }
 
   function _triggerCooldown(Zombie storage _zombie) internal {
-    _zombie.readyTime = uint32(now - now % cooldownTime);
+    _zombie.readyTime = uint32(now + cooldownTime) - uint32((now + cooldownTime) % 1 days);
   }
 
   function _isReady(Zombie storage _zombie) internal view returns (bool) {
