@@ -103,14 +103,14 @@ npm install truffle-hdwallet-provider
 ##### 获取地址：
 >https://faucet.ropsten.be/
 
-![map](https://github.com/Fankouzu/smart-contact/raw/master/Solidity%20Lesson%2003/faucet.jpg)
+![map](https://github.com/Fankouzu/smart-contract/raw/master/Solidity%20Lesson%2003/faucet.jpg)
 #### 3.获取MetaMask助记词
-![map](https://github.com/Fankouzu/smart-contact/raw/master/Solidity%20Lesson%2003/metamask.jpg)
+![map](https://github.com/Fankouzu/smart-contract/raw/master/Solidity%20Lesson%2003/metamask.jpg)
 #### 4.注册Infura，获取测试网或主网的KEY
 ##### 地址：
 >https://infura.io/
 
-![map](https://github.com/Fankouzu/smart-contact/raw/master/Solidity%20Lesson%2003/infura.jpg)
+![map](https://github.com/Fankouzu/smart-contract/raw/master/Solidity%20Lesson%2003/infura.jpg)
 #### 5.修改truffle-config.js文件
 ```shell
 vim truffle-config.js
