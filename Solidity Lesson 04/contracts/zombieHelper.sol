@@ -4,22 +4,22 @@ import "./zombieFactory.sol";
 
 contract ZombieHelper is ZombieFactory {
 
-  uint levelUpFee = 0.001 ether;
+  uint public levelUpFee = 0.001 ether;
 
   modifier aboveLevel(uint _level, uint _zombieId) {
-    require(zombies[_zombieId].level >= _level);
+    require(zombies[_zombieId].level >= _level,'Level is not sufficient');
     _;
   }
   modifier onlyOwnerOf(uint _zombieId) {
-    require(msg.sender == zombieToOwner[_zombieId]);
+    require(msg.sender == zombieToOwner[_zombieId],'Zombie is not yours');
     _;
   }
   function setLevelUpFee(uint _fee) external onlyOwner {
     levelUpFee = _fee;
   }
 
-  function levelUp(uint _zombieId) external payable {
-    require(msg.value == levelUpFee);
+  function levelUp(uint _zombieId) external payable onlyOwnerOf(_zombieId){
+    require(msg.value == levelUpFee,'No enough money');
     zombies[_zombieId].level++;
   }
 
@@ -49,7 +49,7 @@ contract ZombieHelper is ZombieFactory {
 
   function multiply(uint _zombieId, uint _targetDna) internal onlyOwnerOf(_zombieId) {
     Zombie storage myZombie = zombies[_zombieId];
-    require(_isReady(myZombie));
+    require(_isReady(myZombie),'Zombie is not ready');
     _targetDna = _targetDna % dnaModulus;
     uint newDna = (myZombie.dna + _targetDna) / 2;
     newDna = newDna - newDna % 10 + 9;
