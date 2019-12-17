@@ -16,7 +16,7 @@ contract ZombieAttack is ZombieHelper{
         attackVictoryProbability = _attackVictoryProbability;
     }
     
-    function attack(uint _zombieId,uint _targetId)external onlyOwnerOf(_zombieId) return(uint){
+    function attack(uint _zombieId,uint _targetId)external onlyOwnerOf(_zombieId) returns(uint){
         require(msg.sender != zombieToOwner[_targetId],'The target zombie is yours!');
         Zombie storage myZombie = zombies[_zombieId];
         Zombie storage enemyZombie = zombies[_targetId];
