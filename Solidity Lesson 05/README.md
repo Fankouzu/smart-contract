@@ -6,45 +6,75 @@
 - 实例化Web3
 - 读取Metamask的当前账号和网络ID
 - 切换网络
+### 初始化项目,如果没有create-react-app请先安装
+```
+npx create-react-app my-web3
+cd my-app
+npm start
+```
+### 安装web3
+```
+yarn add web3
+```
+### 修改App.js
 
- 
 ```javascript
 
+import React, { Component } from 'react';
 import Web3 from "web3";
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  async componentDidMount() {
+    //判断页面是否安装Metamask
+    if (typeof window.ethereum !== 'undefined') {
+      const ethereum = window.ethereum
+      //禁止自动刷新，metamask要求写的
+      ethereum.autoRefreshOnNetworkChange = false
 
-if (typeof window.ethereum !== 'undefined') {
-    const ethereum = window.ethereum
-    //禁止自动刷新，metamask要求写的
-    ethereum.autoRefreshOnNetworkChange = false
-
-    try {
-        //链接Metamask
+      try {
+        //第一次链接Metamask
         const accounts = await ethereum.enable()
-        //当前地址
         console.log(accounts)
-        //定义Provider 
+        //初始化Provider
         const provider = window['ethereum']
         console.log(provider)
-        //当前网络id
+        //获取网络ID
         console.log(provider.chainId)
-        //实例化web3
+        //实例化Web3
         const web3 = new Web3(provider)
         console.log(web3)
-        //监听切换账号
+
         ethereum.on('accountsChanged', function (accounts) {
-            console.log("accountsChanged:"+accounts)
+          console.log("accountsChanged:" + accounts)
         })
-        //监听切换网络
         ethereum.on('networkChanged', function (networkVersion) {
-            console.log("networkChanged:"+networkVersion)
+          console.log("networkChanged:" + networkVersion)
         })
-    } catch (error) {
-        console.error(error)
+      } catch (e) {
+
+      }
+    } else {
+      console.log('没有metamask')
     }
-}else{
+  }
+  render() {
+    return (
+      <div></div>
+    );
+  }
 }
 
+export default App;
+
 ```
+### 运行代码
+```
+yarn start
+```
+
 
 ## Web3中文文档
 - https://learnblockchain.cn/docs/web3js-0.2x/index.html
