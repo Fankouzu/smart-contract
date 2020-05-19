@@ -16,7 +16,7 @@ truffle init
 ```
 #### 3.安装Openzeppelin
 ```shell
-npm install @openzeppelin/contracts
+npm install @openzeppelin/contracts@2.5.0
 ```
 #### 4.创建Token.sol
 ```shell
