@@ -9,7 +9,7 @@
 ### 初始化项目,如果没有create-react-app请先安装
 ```
 npx create-react-app my-web3
-cd my-app
+cd my-web3
 npm start
 ```
 ### 安装web3
