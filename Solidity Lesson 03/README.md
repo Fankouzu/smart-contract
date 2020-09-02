@@ -16,7 +16,7 @@ truffle init
 ```
 #### 3.安装Openzeppelin
 ```shell
-npm install @openzeppelin/contracts@2.5.0
+npm install @openzeppelin/contracts
 ```
 #### 4.创建Token.sol
 ```shell
@@ -97,7 +97,7 @@ ExampleToken.deployed().then(function(instance){myCoin=instance})
 ### 3.部署到Ropsten
 #### 1.安装HDWalletProvider
 ```shell
-npm install truffle-hdwallet-provider
+npm install @truffle/hdwallet-provider
 ```
 #### 2.获取Ropsten测试币
 ##### 获取地址：
