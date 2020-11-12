@@ -46,7 +46,7 @@
 - Truffle 地址：https://truffleframework.com/
 >生成模拟测试链
 - Ganache 地址：https://www.trufflesuite.com/ganache
->生成模拟测试了，图形化界面
+>生成模拟测试链，图形化界面
 - geth 地址：https://github.com/ethereum/go-ethereum
 >通过搭建节点实现连接真正的测试链
 
