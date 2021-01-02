@@ -158,7 +158,7 @@ ExampleToken.deployed().then(function(instance){myCoin=instance})
 vim truffle-config.js
 ```
 ```javascript
-var HDWalletProvider = require("truffle-hdwallet-provider");  // 导入模块
+var HDWalletProvider = require("@truffle/hdwallet-provider");  // 导入模块
 var mnemonic_mainnet = "主网助记词";  //MetaMask的助记词。
 
 module.exports = {
